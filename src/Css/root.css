@@ -1,0 +1,45 @@
+:root {
+    --color-verde: #458a1d;
+    --color-Azul: #00909E;
+    --color-Verde-Hover: #76dc85;
+    --color-Azul-Hover: #76b8dc;
+    --color-negro: #000;
+    --color-Blanco: #fffdfd;
+    --transparencia: rgba(0, 0, 0, 0.6);
+    --color-gris: #53535300;
+    --font-gametracker: 'gametracker', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'gametracker';
+    src: url('Fonts/Matcha\ Vibes.otf') format('otf'),
+        url('/fonts/WOFF/VictorMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: var(--font-sena);
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#Notificaciones {
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10000;
+}
