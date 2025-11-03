@@ -4,7 +4,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--Sena-Azul, #00909E);
+  background-color: var(--color-primary);
   height: 60px;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   font-size: 28px;
-  color: var(--Sena-Blanco, #ffffff);
+  color: var(--color-text-light);
   cursor: pointer;
 }
 
@@ -33,7 +33,7 @@ nav {
   transform: translate(-50%, -50%);
   font-size: 26px;
   font-weight: bold;
-  color: var(--Sena-Blanco, #fff);
+  color: var(--color-text-light);
 }
 
 /* ====== SIDEBAR ====== */
@@ -43,8 +43,8 @@ nav {
   left: -260px;
   width: 260px;
   height: 100vh;
-  background: #003b43; /* 💡 color por defecto */
-  color: var(--Sena-Blanco, #fff);
+  background: var(--color-secondary); 
+  color: var(--color-text-light);
   padding-top: 60px;
   transition: left 0.3s ease;
   z-index: 3800;
@@ -69,13 +69,13 @@ nav {
   display: block;
   padding: 15px 20px;
   font-size: 18px;
-  color: var(--Sena-Blanco, #fff);
+  color: var(--color-text-light);
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-  color: var(--Sena-Verde-Hover, #76dc85);
+  color: var(color-primary-dark);
   padding-left: 28px;
 }
 
@@ -101,24 +101,4 @@ nav {
 }
 
 
-/* ====== Dark Mode Container ====== */
-.darkmode-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  margin-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
 
-.darkmode-container span {
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* Ajustes opcionales para el switch si es tipo toggle moderno */
-.darkmode-container label,
-.darkmode-container input {
-  margin: 0;
-}

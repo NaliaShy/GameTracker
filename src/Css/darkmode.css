@@ -1,0 +1,76 @@
+/* Aplica a todo el body cuando está en modo oscuro */
+body.dark-mode {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+}
+
+/*al sidebar*/
+/* Nav en modo oscuro */
+body.dark-mode nav {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-dark);
+}
+
+/* Ícono de menú */
+body.dark-mode .menu-icon {
+    filter: invert(1);
+}
+
+/* Sidebar en modo oscuro */
+body.dark-mode .sidebar {
+    background-color: var(--color-secundary-dark);
+    color: var(--color-text-dark);
+}
+
+/*searchbar*/
+
+/* Barra de búsqueda en modo oscuro */
+
+body.dark-mode .search-box input {
+    background: var(--color-background-dark);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-background-dark);
+}
+
+body.dark-mode .filter-container select {
+    background: var(--color-background-dark);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-background-dark);
+}
+
+/* Botones en modo oscuro */
+body.dark-mode .filter-container button {
+    background: var(--color-background-dark);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-background-dark);
+}
+
+/*Tarjetas de videojuegos*/
+
+/* ===== 🎮 Tarjetas de juegos ===== */
+body.dark-mode .juegos-container {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .juego-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .juego-card:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode .juego-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Si querés que el mensaje de "no hay juegos" cambie también: */
+body.dark-mode .juegos-container p {
+  color: #aaa;
+}

@@ -1,0 +1,38 @@
+.juegos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.juegos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 80%;
+}
+
+.juego-card {
+    padding: 30px;
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-background-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.juego-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.juego-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.juego-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

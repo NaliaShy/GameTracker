@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/root.css">
     <link rel="stylesheet" href="../Css/Index.css">
+    <link rel="stylesheet" href="../Css/darkmode.css">
     <title>GameTraker</title>
 </head>
 
@@ -18,11 +19,13 @@
         <div class="index-search-filter-options">
             <?php
             include '../components/searchbar.php';
-            include '../components/filter.php';
             ?>
         </div>
+        <div class="games">
+            <?php include '../components/show-games.php'; ?>
+        </div>
     </div>
-
+    
 </body>
 
 </html>
