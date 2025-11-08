@@ -43,7 +43,7 @@ nav {
   left: -260px;
   width: 260px;
   height: 100vh;
-  background: var(--color-secondary); 
+  background: var(--color-secondary);
   color: var(--color-text-light);
   padding-top: 60px;
   transition: left 0.3s ease;
@@ -99,6 +99,6 @@ nav {
   visibility: visible;
   pointer-events: all;
 }
-
+/* ====== BOTONES INICIAR SESIÓN Y CREAR CUENTA ====== */
 
 

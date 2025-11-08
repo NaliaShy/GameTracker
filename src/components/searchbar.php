@@ -1,7 +1,7 @@
 <?php
-include '../../Php/conexion.php';
+include '../../Php/conexion.php'; // crea $pdo
 
-// Detectar si se presionó el botón "Buscar"
+// Detectar si se presionó "Buscar"
 $buscarPresionado = isset($_GET['buscar']);
 
 $termino = isset($_GET['q']) ? trim($_GET['q']) : '';
@@ -13,32 +13,53 @@ $persp = isset($_GET['persp']) ? (int)$_GET['persp'] : 0;
 $juegos = [];
 
 if ($buscarPresionado) {
-  $sql = "SELECT 
-            j.juego_id,
-            j.juego_nombre,
-            j.juego_descripcion,
-            g.gen_nombre AS genero,
-            p.plataf_nombre AS plataforma
-          FROM juego j
-          LEFT JOIN genero g ON j.gen_id = g.gen_id
-          LEFT JOIN plataforma p ON j.plataf_id = p.plataf_id
-          WHERE 1=1";
 
-  if ($termino !== '') $sql .= " AND j.juego_nombre LIKE '%" . $conn->real_escape_string($termino) . "%'";
-  if ($genero > 0) $sql .= " AND j.gen_id = $genero";
-  if ($plataforma > 0) $sql .= " AND j.plataf_id = $plataforma";
-  if ($modjuego > 0) $sql .= " AND j.modjuego_id = $modjuego";
-  if ($persp > 0) $sql .= " AND j.persp_id = $persp";
+    $sql = "SELECT 
+                j.juego_id,
+                j.juego_nombre,
+                j.juego_descripcion,
+                g.gen_nombre AS genero,
+                p.plataf_nombre AS plataforma
+            FROM juego j
+            LEFT JOIN genero g ON j.gen_id = g.gen_id
+            LEFT JOIN plataforma p ON j.plataf_id = p.plataf_id
+            WHERE 1=1";
 
-  $sql .= " ORDER BY j.juego_nombre ASC";
+    $params = [];
 
-  $result = $conn->query($sql);
-  if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) $juegos[] = $row;
-  }
+    if ($termino !== '') {
+        $sql .= " AND j.juego_nombre LIKE :termino";
+        $params[':termino'] = "%$termino%";
+    }
+
+    if ($genero > 0) {
+        $sql .= " AND j.gen_id = :genero";
+        $params[':genero'] = $genero;
+    }
+
+    if ($plataforma > 0) {
+        $sql .= " AND j.plataf_id = :plataforma";
+        $params[':plataforma'] = $plataforma;
+    }
+
+    if ($modjuego > 0) {
+        $sql .= " AND j.modjuego_id = :modjuego";
+        $params[':modjuego'] = $modjuego;
+    }
+
+    if ($persp > 0) {
+        $sql .= " AND j.persp_id = :persp";
+        $params[':persp'] = $persp;
+    }
+
+    $sql .= " ORDER BY j.juego_nombre ASC";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $juegos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
 ?>
+
 
 <link rel="stylesheet" href="../Css/Components/searchbar.css">
 
@@ -80,4 +101,5 @@ if ($buscarPresionado) {
 </div>
 
 
-<?php $conn->close(); // ✅ Cerramos la conexión aquí, al final ?>
+<script src="../Js/Components/searchbar.js"></script> 
+

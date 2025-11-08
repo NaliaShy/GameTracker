@@ -22,5 +22,3 @@
         <p>No hay juegos registrados todavía 😢</p>
     <?php endif; ?>
 </div>
-
-<?php $conn->close(); ?>

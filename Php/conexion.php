@@ -1,12 +1,15 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "natalia123"; // o tu contraseña
-$db   = "gametracker";
+try {
+    $pdo = new PDO(
+        "mysql:host=localhost;dbname=gametracker;charset=utf8",
+        "root",
+        "natalia123"
+    );
 
-$conn = new mysqli($host, $user, $pass, $db);
+    // Modo de errores
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if ($conn->connect_error) {
-  die("Error de conexión: " . $conn->connect_error);
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
