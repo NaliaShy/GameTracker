@@ -1,0 +1,294 @@
+
+/* ROOT & VARIABLES */
+:root {
+  --color-primary: #1f1f1f;
+  --color-secondary: #5a017a;
+  --color-primary-dark: #388E3C;
+  --color-secundary-dark: #15467d;
+  --color-background-light: #363636;
+  --color-background-dark: #121212;
+  --color-text-light: #ffffff;
+  --color-text-dark: #ffffff;
+  --font-gametracker: 'gametracker', sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-gametracker);
+  color: var(--color-text-light);
+}
+
+@font-face {
+  font-family: 'gametracker';
+  src: url('../Fonts/Matcha Vibes.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*Header, sidebar*/
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: var(--color-primary);
+  z-index: 5000;
+}
+
+.nav-left, .nav-center, .nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left { justify-content: flex-start; }
+.nav-center { justify-content: center; }
+.nav-right { justify-content: flex-end; }
+
+.menu-icon {
+  font-size: 28px;
+  color: var(--color-text-light);
+  cursor: pointer;
+  user-select: none;
+  padding: 6px;
+  background: transparent;
+  border-radius: 6px;
+}
+
+.menu-icon:hover { background-color: var(--color-secondary); }
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.nav-right a {
+  margin-left: 12px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100vh;
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  z-index: 4100;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+.sidebar.active { left: 0; }
+
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+.sidebar ul li a {
+  display: block;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.sidebar ul li a:hover { color: var(--color-primary-dark); padding-left: 28px; }
+
+/* sidebar Perfil*/
+.sidebarPerfil {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+  z-index: 4500;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-gametracker);
+}
+.sidebarPerfil.active { right: 0; }
+
+.sidebarPerfil .modal-close-tittle { display: flex; justify-content: flex-end; padding: 10px 20px; }
+.sidebarPerfil ul { list-style:none; padding:0; margin:0; flex:1; }
+.sidebarPerfil ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebarPerfil ul li a { display:block; padding:15px 25px; font-size:18px; color:#fff; text-decoration:none; }
+.sidebarPerfil ul li a:hover { background:#333; padding-left:30px; color:var(--color-secondary); }
+
+/*Contenido main*/
+main {
+  margin-top: 60px;
+  padding: 20px;
+  background-color: var(--color-background-light);
+  min-height: calc(100vh - 60px);
+}
+
+.contenidoNavegar { display:flex; flex-direction:column; align-items:center; }
+
+/* Barra de busqueda y el filtro */
+.searchbar { margin-top: 20px; width:100%; display:flex; justify-content:center; }
+.search-container { width:100%; max-width:600px; }
+.search-box input {
+  width:100%; padding:12px 15px; border-radius:8px; border:none; outline:none;
+  background-color:#2b2b2b; color:#fff; font-size:16px; box-shadow:0 0 5px rgba(0,0,0,0.4);
+}
+
+.filter-container {
+  display:flex; flex-wrap:wrap; gap:1rem; padding:1rem; background:var(--color-primary);
+  border-radius:12px; margin-bottom:1.2rem; align-items:center; justify-content:flex-start;
+  border:1px solid #333; box-shadow:0 2px 6px rgba(0,0,0,0.4); width:100%; max-width:1200px;
+}
+.filter-container select {
+  padding:0.6rem 0.9rem; background:#2b2b2b; color:#fff; border:1px solid #555; border-radius:8px;
+  font-size:0.95rem; cursor:pointer; transition:0.2s ease; appearance:none;
+}
+.filter-container select:hover { border-color:var(--color-secondary); background:#3a3a3a; box-shadow:0 0 6px rgba(90,1,122,0.3); }
+
+#limpiar { padding:0.6rem 1rem; background:#ff6b6b; color:white; border:none; border-radius:8px; cursor:pointer; font-size:0.95rem; font-weight:bold; transition:background .2s, transform .15s; }
+#limpiar:hover { background:#ff8989; transform:translateY(-2px); }
+#limpiar:active { transform:translateY(0); }
+
+/* Resultados */
+.resultados-container {
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:15px; padding:10px; width:100%; max-width:1200px;
+}
+
+/* Tarjeta de juego */
+.juego-card {
+  background:#1e1e1e; border-radius:10px; padding:15px; color:#fff;
+  box-shadow:0 0 10px rgba(0,0,0,0.3); transition:transform .2s, box-shadow .2s;
+  display:flex; align-items:flex-start; text-align:left;
+}
+.juego-card:hover { transform:scale(1.03); box-shadow:0 0 15px rgba(0,0,0,0.5); }
+.juego-link { text-decoration:none; color:inherit; display:contents; }
+.juego-info { margin-left:15px; }
+.juego-card img { width:70px; height:100px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+.juego-info h3 { font-size:1.1rem; margin-bottom:5px; line-height:1.2; color:var(--color-text-light); }
+.juego-info p { font-size:0.9rem; color:#ccc; margin-bottom:8px; }
+.juego-info small { display:block; color:var(--color-secondary); font-size:0.8rem; margin-top:4px; }
+
+
+/* ------------------------
+   OVERLAY ÚNICO Y GLOBAL
+   ------------------------ */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s ease, visibility .25s ease;
+  z-index: 3000;
+}
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Modales */
+.modal, .Juego-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 4100;
+  pointer-events: none;
+}
+.modal.active, .Juego-modal.active { display:flex; pointer-events:auto; }
+
+/* modal content */
+.modal-content {
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  padding: 20px;
+  border-radius: 10px;
+  width: 92%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal.small .modal-content { max-width: 420px; }
+
+/* close */
+.modal .close, .Juego-modal .close, .sidebarPerfil .close { cursor:pointer; font-size:24px; color:var(--color-text-light); transition:color .15s; }
+.modal .close:hover, .Juego-modal .close:hover, .sidebarPerfil .close:hover { color: var(--color-secondary); }
+
+/* JUEGO DETAILS SPECIFIC */
+#juegoDetallesModal .modal-content { background:#1e1e1e; padding:18px; border-radius:10px; }
+.juego-header { display:flex; gap:16px; align-items:flex-start; }
+.juego-header img { width:90px; height:120px; object-fit:cover; border-radius:8px; }
+.juego-info-section, .juego-comentarios-section { margin-top:14px; }
+.lista-comentarios { margin-top:12px; }
+.comentario-item { background:#2a2a2a; padding:10px; border-radius:6px; margin-bottom:8px; }
+.comentario-item strong { color: var(--color-secondary); }
+
+#comentarioTexto { margin-top:10px; width:100%; padding:10px; border-radius:6px; border:none; resize:vertical; }
+#btnEnviarComentario { background: var(--color-secondary); color: var(--color-text-light); border:none; padding:10px 14px; border-radius:6px; cursor:pointer; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rating-stars {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.rating-stars span {
+    font-size: 40px;
+    color: #ccc;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rating-stars span:hover {
+    transform: scale(1.2);
+}
+
+.rating-stars span.selected {
+    color: gold;
+}
