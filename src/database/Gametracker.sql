@@ -85,7 +85,7 @@ CREATE TABLE `comentario` (
   KEY `usuario_id` (`usuario_id`),
   CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`juego_id`) REFERENCES `juego` (`juego_id`) ON DELETE CASCADE,
   CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +94,7 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+INSERT INTO `comentario` VALUES (13,1,2,'Hola\r\n','2025-11-20 00:38:43'),(14,6,2,'Hola','2025-11-20 12:14:08');
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -415,6 +416,33 @@ LOCK TABLES `tema` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user_juego_rating`
+--
+
+DROP TABLE IF EXISTS `user_juego_rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_juego_rating` (
+  `usuario_id` int NOT NULL,
+  `juego_id` int NOT NULL,
+  `rating` tinyint NOT NULL,
+  `fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`usuario_id`,`juego_id`),
+  CONSTRAINT `user_juego_rating_chk_1` CHECK ((`rating` between 1 and 5))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_juego_rating`
+--
+
+LOCK TABLES `user_juego_rating` WRITE;
+/*!40000 ALTER TABLE `user_juego_rating` DISABLE KEYS */;
+INSERT INTO `user_juego_rating` VALUES (2,0,3,'2025-11-19 23:46:35'),(2,1,3,'2025-11-20 00:38:37'),(2,4,3,'2025-11-20 12:14:25'),(2,6,3,'2025-11-20 12:14:25'),(2,24,4,'2025-11-19 23:46:35');
+/*!40000 ALTER TABLE `user_juego_rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuario`
 --
 
@@ -451,4 +479,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-19 17:16:47
+-- Dump completed on 2025-11-20 19:06:36
