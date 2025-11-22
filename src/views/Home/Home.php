@@ -13,6 +13,7 @@
     <?php
     include __DIR__ . '/../layout/MainLayout.php';
     ?>
+    <script src="../../../Public/Js/Register.js"></script>
     <script src="../../../Public/Js/Login.js"></script>
     <script src="../../../Public/Js/Sidebar.js"></script>
     <script src="../../../Public/Js/Modals.js"></script>
