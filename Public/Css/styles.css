@@ -1,4 +1,3 @@
-
 /* ROOT & VARIABLES */
 :root {
   --color-primary: #1f1f1f;
@@ -42,15 +41,25 @@ nav {
   z-index: 5000;
 }
 
-.nav-left, .nav-center, .nav-right {
+.nav-left,
+.nav-center,
+.nav-right {
   flex: 1;
   display: flex;
   align-items: center;
 }
 
-.nav-left { justify-content: flex-start; }
-.nav-center { justify-content: center; }
-.nav-right { justify-content: flex-end; }
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-center {
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
 
 .menu-icon {
   font-size: 28px;
@@ -62,7 +71,9 @@ nav {
   border-radius: 6px;
 }
 
-.menu-icon:hover { background-color: var(--color-secondary); }
+.menu-icon:hover {
+  background-color: var(--color-secondary);
+}
 
 .logo {
   font-size: 24px;
@@ -91,10 +102,20 @@ nav {
   z-index: 4100;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
 }
-.sidebar.active { left: 0; }
 
-.sidebar ul { list-style: none; padding: 0; margin: 0; }
-.sidebar ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 .sidebar ul li a {
   display: block;
@@ -104,7 +125,11 @@ nav {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-.sidebar ul li a:hover { color: var(--color-primary-dark); padding-left: 28px; }
+
+.sidebar ul li a:hover {
+  color: var(--color-primary-dark);
+  padding-left: 28px;
+}
 
 /* sidebar Perfil*/
 .sidebarPerfil {
@@ -118,18 +143,46 @@ nav {
   padding-top: 60px;
   transition: right 0.3s ease;
   z-index: 4500;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.4);
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   font-family: var(--font-gametracker);
 }
-.sidebarPerfil.active { right: 0; }
 
-.sidebarPerfil .modal-close-tittle { display: flex; justify-content: flex-end; padding: 10px 20px; }
-.sidebarPerfil ul { list-style:none; padding:0; margin:0; flex:1; }
-.sidebarPerfil ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
-.sidebarPerfil ul li a { display:block; padding:15px 25px; font-size:18px; color:#fff; text-decoration:none; }
-.sidebarPerfil ul li a:hover { background:#333; padding-left:30px; color:var(--color-secondary); }
+.sidebarPerfil.active {
+  right: 0;
+}
+
+.sidebarPerfil .modal-close-tittle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.sidebarPerfil ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebarPerfil ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebarPerfil ul li a {
+  display: block;
+  padding: 15px 25px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebarPerfil ul li a:hover {
+  background: #333;
+  padding-left: 30px;
+  color: var(--color-secondary);
+}
 
 /*Contenido main*/
 main {
@@ -139,52 +192,158 @@ main {
   min-height: calc(100vh - 60px);
 }
 
-.contenidoNavegar { display:flex; flex-direction:column; align-items:center; }
+.contenidoNavegar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Barra de busqueda y el filtro */
-.searchbar { margin-top: 20px; width:100%; display:flex; justify-content:center; }
-.search-container { width:100%; max-width:600px; }
+.searchbar {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+}
+
 .search-box input {
-  width:100%; padding:12px 15px; border-radius:8px; border:none; outline:none;
-  background-color:#2b2b2b; color:#fff; font-size:16px; box-shadow:0 0 5px rgba(0,0,0,0.4);
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #2b2b2b;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .filter-container {
-  display:flex; flex-wrap:wrap; gap:1rem; padding:1rem; background:var(--color-primary);
-  border-radius:12px; margin-bottom:1.2rem; align-items:center; justify-content:flex-start;
-  border:1px solid #333; box-shadow:0 2px 6px rgba(0,0,0,0.4); width:100%; max-width:1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-primary);
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 1200px;
 }
-.filter-container select {
-  padding:0.6rem 0.9rem; background:#2b2b2b; color:#fff; border:1px solid #555; border-radius:8px;
-  font-size:0.95rem; cursor:pointer; transition:0.2s ease; appearance:none;
-}
-.filter-container select:hover { border-color:var(--color-secondary); background:#3a3a3a; box-shadow:0 0 6px rgba(90,1,122,0.3); }
 
-#limpiar { padding:0.6rem 1rem; background:#ff6b6b; color:white; border:none; border-radius:8px; cursor:pointer; font-size:0.95rem; font-weight:bold; transition:background .2s, transform .15s; }
-#limpiar:hover { background:#ff8989; transform:translateY(-2px); }
-#limpiar:active { transform:translateY(0); }
+.filter-container select {
+  padding: 0.6rem 0.9rem;
+  background: #2b2b2b;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  appearance: none;
+}
+
+.filter-container select:hover {
+  border-color: var(--color-secondary);
+  background: #3a3a3a;
+  box-shadow: 0 0 6px rgba(90, 1, 122, 0.3);
+}
+
+#limpiar {
+  padding: 0.6rem 1rem;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background .2s, transform .15s;
+}
+
+#limpiar:hover {
+  background: #ff8989;
+  transform: translateY(-2px);
+}
+
+#limpiar:active {
+  transform: translateY(0);
+}
 
 /* Resultados */
 .resultados-container {
-  margin-top:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:15px; padding:10px; width:100%; max-width:1200px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Tarjeta de juego */
 .juego-card {
-  background:#1e1e1e; border-radius:10px; padding:15px; color:#fff;
-  box-shadow:0 0 10px rgba(0,0,0,0.3); transition:transform .2s, box-shadow .2s;
-  display:flex; align-items:flex-start; text-align:left;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
 }
-.juego-card:hover { transform:scale(1.03); box-shadow:0 0 15px rgba(0,0,0,0.5); }
-.juego-link { text-decoration:none; color:inherit; display:contents; }
-.juego-info { margin-left:15px; }
-.juego-card img { width:70px; height:100px; object-fit:cover; border-radius:8px; flex-shrink:0; }
-.juego-info h3 { font-size:1.1rem; margin-bottom:5px; line-height:1.2; color:var(--color-text-light); }
-.juego-info p { font-size:0.9rem; color:#ccc; margin-bottom:8px; }
-.juego-info small { display:block; color:var(--color-secondary); font-size:0.8rem; margin-top:4px; }
+
+.juego-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.juego-link {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+}
+
+.juego-info {
+  margin-left: 15px;
+}
+
+.juego-card img {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.juego-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  color: var(--color-text-light);
+}
+
+.juego-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.juego-info small {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
 
 
 /* ------------------------
@@ -193,60 +352,228 @@ main {
 #overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity .25s ease, visibility .25s ease;
   z-index: 3000;
 }
+
 #overlay.active {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
 }
 
-/* Modales */
-.modal, .Juego-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 4100;
-  pointer-events: none;
+/* --- Modales --- */
+/* Contenedor principal del modal */
+.modal,
+.Juego-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
+    display: flex; /* Usar flexbox para centrar contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    z-index: 4100; /* Asegurarse de que esté por encima de otros elementos */
+    opacity: 0; /* Inicialmente transparente para la animación */
+    visibility: hidden; /* Oculto para no interferir con interacciones */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave */
 }
-.modal.active, .Juego-modal.active { display:flex; pointer-events:auto; }
 
-/* modal content */
+/* Estado activo del modal (visible) */
+.modal.active,
+.Juego-modal.active {
+    opacity: 1; /* Completamente visible */
+    visibility: visible; /* Hacer visible el modal */
+}
+
+/* --- Contenido del Modal --- */
 .modal-content {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
-  padding: 20px;
-  border-radius: 10px;
-  width: 92%;
-  max-width: 700px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  max-height: 90vh;
-  overflow-y: auto;
+    background-color: var(--color-background-dark); /* Color de fondo oscuro de tu tema */
+    color: var(--color-text-light); /* Color de texto claro */
+    padding: 30px; /* Aumentar padding para más espacio interno */
+    border-radius: 12px; /* Bordes ligeramente más redondeados */
+    width: 90%; /* Un poco más ancho en pantallas pequeñas */
+    max-width: 550px; /* Reducir max-width para un enfoque más centralizado */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8); /* Sombra más pronunciada para profundidad */
+    max-height: 90vh; /* Máxima altura del 90% del viewport */
+    overflow-y: auto; /* Scroll si el contenido es demasiado largo */
+    transform: translateY(-20px); /* Ligeramente desplazado hacia arriba para la animación */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición para la aparición */
+    opacity: 0; /* Inicialmente oculto para la animación */
 }
-.modal.small .modal-content { max-width: 420px; }
 
-/* close */
-.modal .close, .Juego-modal .close, .sidebarPerfil .close { cursor:pointer; font-size:24px; color:var(--color-text-light); transition:color .15s; }
-.modal .close:hover, .Juego-modal .close:hover, .sidebarPerfil .close:hover { color: var(--color-secondary); }
+/* Animación de entrada para el contenido del modal */
+.modal.active .modal-content,
+.Juego-modal.active .modal-content {
+    opacity: 1; /* Se vuelve visible */
+    transform: translateY(0); /* Vuelve a su posición original */
+}
 
+/* Modificador para modales pequeños */
+.modal.small .modal-content {
+    max-width: 380px; /* Más compacto para modales pequeños */
+    padding: 25px;
+}
+
+/* --- Cierre del Modal --- */
+.modal-close-tittle { /* Contenedor para el título y el botón de cierre */
+    display: flex;
+    justify-content: space-between; /* Alinea el título a la izquierda y el cierre a la derecha */
+    align-items: center;
+    margin-bottom: 20px; /* Espacio debajo del título */
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+}
+
+.modal-close-tittle h2 {
+    margin: 0; /* Eliminar márgenes por defecto del h2 */
+    font-size: 1.8em; /* Tamaño de fuente ligeramente más grande para el título */
+    color: var(--color-text-light);
+}
+
+.modal .close,
+.Juego-modal .close,
+.sidebarPerfil .close {
+    cursor: pointer;
+    font-size: 28px; /* Ícono de cierre más grande */
+    line-height: 1; /* Asegurar que el 'x' no tenga espacio extra */
+    color: var(--color-text-light); /* Color inicial */
+    transition: color 0.2s ease, transform 0.2s ease; /* Transición más suave */
+    margin-left: 15px; /* Espacio entre el título y el botón de cierre */
+}
+
+.modal .close:hover,
+.Juego-modal .close:hover,
+.sidebarPerfil .close:hover {
+    color: var(--color-secondary); /* Color al pasar el ratón */
+    transform: rotate(90deg); /* Pequeña rotación al pasar el ratón */
+}
+
+/* --- Estilo de Inputs (lo nuevo) --- */
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"] {
+    width: calc(100% - 20px); /* Ajustar el ancho para el padding */
+    padding: 12px 10px; /* Aumentar el padding para inputs más cómodos */
+    margin-bottom: 15px; /* Espacio entre inputs */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-radius: 6px; /* Bordes ligeramente redondeados */
+    background-color: var(--color-background-medium); /* Fondo ligeramente más claro que el modal */
+    color: #000000; /* ¡Texto del input en NEGRO! */
+    font-size: 1em; /* Tamaño de fuente legible */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content input[type="text"]::placeholder,
+.modal-content input[type="email"]::placeholder,
+.modal-content input[type="password"]::placeholder {
+    color: #888888; /* Color del placeholder */
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="email"]:focus,
+.modal-content input[type="password"]:focus {
+    border-color: var(--color-secondary); /* Borde resaltado al enfocar */
+    box-shadow: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.3); /* Sombra al enfocar */
+    outline: none; /* Eliminar el outline por defecto del navegador */
+}
+
+/* Estilo para los labels de los inputs */
+.modal-content label {
+    display: block; /* Cada label en su propia línea */
+    margin-bottom: 8px; /* Espacio entre label y input */
+    font-size: 0.95em;
+    color: var(--color-text-light); /* Color de texto claro */
+    font-weight: 500; /* Ligeramente más negrita */
+}
+
+/* Estilo para los botones dentro de los modales */
+.modal-content button {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primary); /* Color de acento para botones */
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modal-content button:hover {
+    background-color: var(--color-secondary); /* Cambio de color al pasar el ratón */
+    transform: translateY(-1px); /* Efecto ligero de "elevación" */
+}
+
+.modal-content button:active {
+    transform: translateY(0); /* Efecto al presionar */
+}
 /* JUEGO DETAILS SPECIFIC */
-#juegoDetallesModal .modal-content { background:#1e1e1e; padding:18px; border-radius:10px; }
-.juego-header { display:flex; gap:16px; align-items:flex-start; }
-.juego-header img { width:90px; height:120px; object-fit:cover; border-radius:8px; }
-.juego-info-section, .juego-comentarios-section { margin-top:14px; }
-.lista-comentarios { margin-top:12px; }
-.comentario-item { background:#2a2a2a; padding:10px; border-radius:6px; margin-bottom:8px; }
-.comentario-item strong { color: var(--color-secondary); }
+#juegoDetallesModal .modal-content {
+  background: #1e1e1e;
+  padding: 18px;
+  border-radius: 10px;
+}
 
-#comentarioTexto { margin-top:10px; width:100%; padding:10px; border-radius:6px; border:none; resize:vertical; }
-#btnEnviarComentario { background: var(--color-secondary); color: var(--color-text-light); border:none; padding:10px 14px; border-radius:6px; cursor:pointer; }
+.juego-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.juego-header img {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.juego-info-section,
+.juego-comentarios-section {
+  margin-top: 14px;
+}
+
+.lista-comentarios {
+  margin-top: 12px;
+}
+
+.comentario-item {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.comentario-item strong {
+  color: var(--color-secondary);
+}
+
+#comentarioTexto {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  resize: vertical;
+}
+
+#btnEnviarComentario {
+  background: var(--color-secondary);
+  color: var(--color-text-light);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 
 
@@ -273,22 +600,330 @@ main {
 
 
 .rating-stars {
-    display: flex;
-    gap: 8px;
-    cursor: pointer;
-    user-select: none;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .rating-stars span {
-    font-size: 40px;
-    color: #ccc;
-    transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 40px;
+  color: #ccc;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .rating-stars span:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .rating-stars span.selected {
-    color: gold;
+  color: gold;
+}
+
+
+
+
+
+
+.avatarSelectionContent {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+  z-index: 4500;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-gametracker);
+
+}
+
+.AvatarSelectionModal.active {
+  opacity: 1;
+}
+
+.selectable-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  /* Borde transparente por defecto */
+  transition: border 0.2s;
+}
+
+.selectable-avatar:hover {
+  opacity: 0.8;
+}
+
+/* Estilo para el avatar seleccionado, se añade con JS */
+.selectable-avatar.selected {
+  border-color: #FF5733 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.avatar-link {
+    display: flex; 
+    align-items: center; /* Centra verticalmente el avatar y el nombre */
+    gap: 8px; /* Espacio entre la imagen y el nombre */
+    text-decoration: none; /* Quitar subrayado del enlace */
+    color: var(--color-text-light, #fff); /* Color del texto */
+    font-size: 1.05em;
+    padding: 5px 10px; /* Padding para el área de clic */
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.avatar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Ligero fondo al pasar el ratón */
+}
+
+/* Estilo para la imagen de perfil (sin cambios cruciales) */
+.profile-avatar-nav {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid var(--color-primary, #FF5733); 
+    cursor: pointer;
+}
+
+/* Estilo para el nombre de usuario */
+.profile-username-nav {
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el nombre se rompa en varias líneas */
+    max-width: 150px; /* Limita el ancho si el nombre es muy largo */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade puntos suspensivos si se corta */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Contenedor Principal y Layout de Dos Columnas --- */
+
+#misJuegosContent {
+    padding: 20px;
+    color: var(--color-text-light); /* Texto claro */
+    min-height: 80vh;
+}
+
+.mis-juegos-layout {
+    display: flex;
+    gap: 30px; /* Espacio entre las columnas */
+    margin-top: 20px;
+}
+
+/* --- Columna de Estadísticas (Izquierda) --- */
+
+.mis-juegos-stats-col {
+    flex: 0 0 300px; /* Ancho fijo de 300px para la columna de estadísticas */
+    /* background-color: var(--color-background-medium); Si quieres un fondo distinto */
+    padding: 10px;
+}
+
+.mis-juegos-stats-col h2 {
+    color: var(--color-primary); /* Color de acento para el título principal */
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.mis-juegos-stats-col hr {
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background-color: var(--color-background-medium); /* Un color ligeramente más claro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--color-secondary); /* Barra de acento lateral */
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.7); /* Texto secundario */
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-primary); /* El valor resaltado */
+    margin-top: 5px;
+}
+
+/* --- Columna de Lista de Juegos (Derecha) --- */
+
+.mis-juegos-list-col {
+    flex-grow: 1; /* Ocupa el resto del espacio disponible */
+}
+
+.mis-juegos-list-col h2 {
+    color: var(--color-text-light);
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+/* Contenedor para la cuadrícula de tarjetas de juego */
+.mis-juegos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 280px es el ancho mínimo de la tarjeta */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* --- Estilo de la Tarjeta de Juego --- */
+
+.juego-card {
+    background-color: var(--color-background-dark);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde muy sutil */
+}
+
+.juego-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.juego-content {
+    padding: 15px;
+}
+
+.juego-cover {
+    width: 100%;
+    height: 180px; /* Altura fija para la portada */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    border-radius: 8px; /* Bordes redondeados en la imagen */
+    margin-bottom: 10px;
+    transition: opacity 0.2s;
+}
+
+.juego-card:hover .juego-cover {
+    opacity: 0.9;
+}
+
+.juego-content h3 {
+    font-size: 1.4em;
+    margin: 0 0 5px 0;
+    color: var(--color-text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.juego-content p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    max-height: 3.2em; /* Limita a 2 líneas de descripción */
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+/* --- Estilo del Rating --- */
+
+.user-rating-display {
+    font-weight: bold;
+    font-size: 1em;
+    color: var(--color-text-light);
+    margin: 10px 0;
+}
+
+.stars {
+    color: #FFC300; /* Color amarillo/dorado para las estrellas */
+    font-size: 1.2em;
+    letter-spacing: 2px; /* Espacio entre estrellas */
+    user-select: none;
+}
+
+/* --- Responsividad --- */
+
+@media (max-width: 900px) {
+    .mis-juegos-layout {
+        flex-direction: column; /* Apila las columnas en pantallas más pequeñas */
+    }
+
+    .mis-juegos-stats-col {
+        flex: 1 1 auto; /* Permite que la columna de estadísticas se expanda */
+        max-width: 100%;
+        order: -1; /* Mueve las estadísticas a la parte superior */
+    }
+
+    .mis-juegos-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reducir el ancho mínimo */
+    }
 }
