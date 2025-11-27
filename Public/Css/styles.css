@@ -1,33 +1,55 @@
-/* ROOT & VARIABLES */
+/* ======================================================= */
+/* 0. ROOT Y VARIABLES */
+/* ======================================================= */
 :root {
+  /* Colores Principales */
   --color-primary: #1f1f1f;
-  --color-secondary: #5a017a;
-  --color-primary-dark: #388E3C;
-  --color-secundary-dark: #15467d;
+  --color-secondary: #5a017a; /* Color de acento (Púrpura GameTracker) */
+  
+  /* Fondos */
   --color-background-light: #363636;
   --color-background-dark: #121212;
+  
+  /* Texto */
   --color-text-light: #ffffff;
-  --color-text-dark: #ffffff;
-  --font-gametracker: 'gametracker', sans-serif;
+  --color-text-dark: #1f1f1f; 
+
+  /* Estados Interactivos y Alertas */
+  --color-hover: #7b1fa2;     
+  --color-success: #4CAF50;    
+  --color-error: #F44336;      
+
+  /* Tipografía */
+  --font-gametracker: 'gametracker';
+
+  /* Transiciones */
+  --transition-speed: 0.3s; /* Velocidad base para animaciones suaves */
+}
+@font-face {
+  font-family: 'gametracker';
+  src: url('../Fonts/The\ Simple\ Life.otf') format('opentype');
+  font-weight:100;
+  font-style:oblique
+  ;
 }
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-gametracker);
   color: var(--color-text-light);
+  /* Aplicar transición a las propiedades que cambian al hacer hover o al cambiar de estado */
+  transition: color var(--transition-speed), background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
-@font-face {
-  font-family: 'gametracker';
-  src: url('../Fonts/Matcha Vibes.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+body {
+  background-color: var(--color-background-dark);
 }
+/* ======================================================= */
+/* 1. HEADER, SIDEBAR Y OVERLAY */
+/* ======================================================= */
 
-/*Header, sidebar*/
 nav {
   position: fixed;
   top: 0;
@@ -184,171 +206,6 @@ nav {
   color: var(--color-secondary);
 }
 
-/*Contenido main*/
-main {
-  margin-top: 60px;
-  padding: 20px;
-  background-color: var(--color-background-light);
-  min-height: calc(100vh - 60px);
-}
-
-.contenidoNavegar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Barra de busqueda y el filtro */
-.searchbar {
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.search-container {
-  width: 100%;
-  max-width: 600px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  background-color: #2b2b2b;
-  color: #fff;
-  font-size: 16px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-}
-
-.filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--color-primary);
-  border-radius: 12px;
-  margin-bottom: 1.2rem;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px solid #333;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  width: 100%;
-  max-width: 1200px;
-}
-
-.filter-container select {
-  padding: 0.6rem 0.9rem;
-  background: #2b2b2b;
-  color: #fff;
-  border: 1px solid #555;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: 0.2s ease;
-  appearance: none;
-}
-
-.filter-container select:hover {
-  border-color: var(--color-secondary);
-  background: #3a3a3a;
-  box-shadow: 0 0 6px rgba(90, 1, 122, 0.3);
-}
-
-#limpiar {
-  padding: 0.6rem 1rem;
-  background: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: bold;
-  transition: background .2s, transform .15s;
-}
-
-#limpiar:hover {
-  background: #ff8989;
-  transform: translateY(-2px);
-}
-
-#limpiar:active {
-  transform: translateY(0);
-}
-
-/* Resultados */
-.resultados-container {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
-  padding: 10px;
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* Tarjeta de juego */
-.juego-card {
-  background: #1e1e1e;
-  border-radius: 10px;
-  padding: 15px;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: transform .2s, box-shadow .2s;
-  display: flex;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.juego-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-.juego-link {
-  text-decoration: none;
-  color: inherit;
-  display: contents;
-}
-
-.juego-info {
-  margin-left: 15px;
-}
-
-.juego-card img {
-  width: 70px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.juego-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  line-height: 1.2;
-  color: var(--color-text-light);
-}
-
-.juego-info p {
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
-.juego-info small {
-  display: block;
-  color: var(--color-secondary);
-  font-size: 0.8rem;
-  margin-top: 4px;
-}
-
-
-/* ------------------------
-   OVERLAY ÚNICO Y GLOBAL
-   ------------------------ */
 #overlay {
   position: fixed;
   inset: 0;
@@ -365,133 +222,109 @@ main {
   visibility: visible;
   pointer-events: all;
 }
+/* ======================================================= */
+/* 2. ESTILOS BASE DE MODALES (Centrado Garantizado) */
+/* ======================================================= */
 
-/* --- Modales --- */
-/* Contenedor principal del modal */
+/* --- Contenedor principal del modal y Overlay --- */
 .modal,
 .Juego-modal {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Fijo en la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
-    display: flex; /* Usar flexbox para centrar contenido */
+    /* 1. Ocupar toda la pantalla */
+    position: fixed; 
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%; /* ¡CLAVE! Asegura que el contenedor ocupe todo el alto */
+    
+    /* 2. Centrado con Flexbox */
+    display: flex; 
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
-    z-index: 4100; /* Asegurarse de que esté por encima de otros elementos */
-    opacity: 0; /* Inicialmente transparente para la animación */
-    visibility: hidden; /* Oculto para no interferir con interacciones */
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición suave */
+    
+    /* Propiedades de animación y visibilidad */
+    background-color: rgba(0, 0, 0, 0.048); 
+    z-index: 4100; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+
+    /*parte interna*/
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    padding: 20px;
 }
 
 /* Estado activo del modal (visible) */
 .modal.active,
 .Juego-modal.active {
-    opacity: 1; /* Completamente visible */
-    visibility: visible; /* Hacer visible el modal */
+    opacity: 1; 
+    visibility: visible; 
 }
 
-/* --- Contenido del Modal --- */
+/* --- Contenido del Modal (Caja interna) --- */
 .modal-content {
-    background-color: var(--color-background-dark); /* Color de fondo oscuro de tu tema */
-    color: var(--color-text-light); /* Color de texto claro */
-    padding: 30px; /* Aumentar padding para más espacio interno */
-    border-radius: 12px; /* Bordes ligeramente más redondeados */
-    width: 90%; /* Un poco más ancho en pantallas pequeñas */
-    max-width: 550px; /* Reducir max-width para un enfoque más centralizado */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8); /* Sombra más pronunciada para profundidad */
-    max-height: 90vh; /* Máxima altura del 90% del viewport */
-    overflow-y: auto; /* Scroll si el contenido es demasiado largo */
-    transform: translateY(-20px); /* Ligeramente desplazado hacia arriba para la animación */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Transición para la aparición */
-    opacity: 0; /* Inicialmente oculto para la animación */
+    background-color: var(--color-background-dark); 
+    /* ... (El resto de tus estilos de padding, border-radius, etc.) ... */
+    
+    /* IMPORTANTE: Si el contenido interno tiene scroll (max-height),
+       asegúrate de que el 'transform' y 'opacity' solo se apliquen al contenido,
+       no al wrapper, para mantener el centrado estático. */
+    max-height: 90vh; /* Para que no se salga de la pantalla */
+    overflow-y: auto; 
+    
+    /* Animación de entrada/salida (desde el bloque anterior) */
+    transform: translateY(-20px); 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    opacity: 0; 
 }
 
 /* Animación de entrada para el contenido del modal */
 .modal.active .modal-content,
 .Juego-modal.active .modal-content {
-    opacity: 1; /* Se vuelve visible */
-    transform: translateY(0); /* Vuelve a su posición original */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-/* Modificador para modales pequeños */
-.modal.small .modal-content {
-    max-width: 380px; /* Más compacto para modales pequeños */
-    padding: 25px;
-}
 
-/* --- Cierre del Modal --- */
-.modal-close-tittle { /* Contenedor para el título y el botón de cierre */
-    display: flex;
-    justify-content: space-between; /* Alinea el título a la izquierda y el cierre a la derecha */
-    align-items: center;
-    margin-bottom: 20px; /* Espacio debajo del título */
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
-}
 
-.modal-close-tittle h2 {
-    margin: 0; /* Eliminar márgenes por defecto del h2 */
-    font-size: 1.8em; /* Tamaño de fuente ligeramente más grande para el título */
-    color: var(--color-text-light);
-}
 
-.modal .close,
-.Juego-modal .close,
-.sidebarPerfil .close {
-    cursor: pointer;
-    font-size: 28px; /* Ícono de cierre más grande */
-    line-height: 1; /* Asegurar que el 'x' no tenga espacio extra */
-    color: var(--color-text-light); /* Color inicial */
-    transition: color 0.2s ease, transform 0.2s ease; /* Transición más suave */
-    margin-left: 15px; /* Espacio entre el título y el botón de cierre */
-}
+/* ======================================================= */
+/* 3. INPUTS Y BOTONES DENTRO DE MODALES */
+/* ======================================================= */
 
-.modal .close:hover,
-.Juego-modal .close:hover,
-.sidebarPerfil .close:hover {
-    color: var(--color-secondary); /* Color al pasar el ratón */
-    transform: rotate(90deg); /* Pequeña rotación al pasar el ratón */
-}
-
-/* --- Estilo de Inputs (lo nuevo) --- */
 .modal-content input[type="text"],
 .modal-content input[type="email"],
 .modal-content input[type="password"] {
-    width: calc(100% - 20px); /* Ajustar el ancho para el padding */
-    padding: 12px 10px; /* Aumentar el padding para inputs más cómodos */
-    margin-bottom: 15px; /* Espacio entre inputs */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
-    border-radius: 6px; /* Bordes ligeramente redondeados */
-    background-color: var(--color-background-medium); /* Fondo ligeramente más claro que el modal */
-    color: #000000; /* ¡Texto del input en NEGRO! */
-    font-size: 1em; /* Tamaño de fuente legible */
+    /* Usamos '100%' para el ancho y el padding lo ajusta */
+    width: 100%; 
+    padding: 12px 15px; 
+    margin-bottom: 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 6px; 
+    background-color: var(--color-background-medium); 
+    /* ¡AQUÍ ESTÁ LA CORRECCIÓN CLAVE! Tienes que usar el color de texto oscuro */
+    color: var(--color-text-dark); 
+    font-size: 1em; 
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-content input[type="text"]::placeholder,
-.modal-content input[type="email"]::placeholder,
-.modal-content input[type="password"]::placeholder {
-    color: #888888; /* Color del placeholder */
-}
-
+/* Aseguramos el foco */
 .modal-content input[type="text"]:focus,
 .modal-content input[type="email"]:focus,
 .modal-content input[type="password"]:focus {
-    border-color: var(--color-secondary); /* Borde resaltado al enfocar */
-    box-shadow: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.3); /* Sombra al enfocar */
-    outline: none; /* Eliminar el outline por defecto del navegador */
+    border-color: var(--color-secondary); 
+    /* Usamos la variable RGB para la sombra */
+    box-shadow: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.3); 
+    outline: none; 
 }
 
 /* Estilo para los labels de los inputs */
 .modal-content label {
-    display: block; /* Cada label en su propia línea */
-    margin-bottom: 8px; /* Espacio entre label y input */
+    display: block; 
+    margin-bottom: 8px; 
     font-size: 0.95em;
-    color: var(--color-text-light); /* Color de texto claro */
-    font-weight: 500; /* Ligeramente más negrita */
+    color: var(--color-text-light); 
+    font-weight: bold; /* Más negrita para destacar */
 }
 
 /* Estilo para los botones dentro de los modales */
@@ -501,7 +334,7 @@ main {
     margin-top: 20px;
     border: none;
     border-radius: 8px;
-    background-color: var(--color-primary); /* Color de acento para botones */
+    background-color: var(--color-secondary); /* Usamos el color de acento */
     color: var(--color-text-light);
     font-size: 1.1em;
     font-weight: bold;
@@ -510,13 +343,336 @@ main {
 }
 
 .modal-content button:hover {
-    background-color: var(--color-secondary); /* Cambio de color al pasar el ratón */
-    transform: translateY(-1px); /* Efecto ligero de "elevación" */
+    background-color: var(--color-hover); /* Usamos el color de hover */
+    transform: translateY(-1px); 
 }
 
-.modal-content button:active {
-    transform: translateY(0); /* Efecto al presionar */
+
+
+
+
+
+
+
+/* ======================================================= */
+/* 4. CONTENIDO PRINCIPAL (MAIN) */
+/* ======================================================= */
+main {
+  /* Separación del Header fijo de 60px */
+  margin-top: 60px;
+  /* Padding general para los bordes */
+  padding: 20px;
+  /* Usamos el color de fondo más oscuro para el cuerpo */
+  background-color: var(--color-background-dark); 
+  /* Aseguramos que ocupe al menos el alto restante del viewport */
+  min-height: calc(100vh - 60px); 
+  /* Transición suave por si el fondo cambia dinámicamente */
+  transition: padding-left 0.3s ease; 
 }
+
+/* Ajuste del Main cuando el Sidebar está activo (si lo manejas con JS) */
+/* Si tu sidebar empuja el main, usa una clase como .sidebar-open en el body */
+/* Ejemplo: 
+body.sidebar-open main {
+    padding-left: 270px; 
+}
+*/
+
+/* ======================================================= */
+/* 5. SECCIONES DE CONTENIDO BASE */
+/* ======================================================= */
+
+/* Todas las secciones principales deben heredar de este estilo base */
+.contenidoNavegar,
+.contenidoDescubre,
+.contenidoMisJuegos,
+.contenidoAdmin {
+  padding: 0; /* Ya tenemos padding en el main */
+  width: 100%;
+  max-width: 1400px; /* Limitar el ancho en pantallas muy grandes */
+  margin: 0 auto; /* Centrar la sección dentro del main */
+  /* Inicialmente, muchas secciones están ocultas por FunncionesExtra.js */
+  transition: opacity 0.3s ease;
+}
+
+/* Estilo específico para Navegar (donde probablemente irán las tarjetas de juegos) */
+.contenidoNavegar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos a lo largo del eje transversal (horizontal) */
+}
+
+/* Títulos dentro del contenido principal */
+.contenidoNavegar h1,
+.contenidoDescubre h1 {
+    color: var(--color-text-light);
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--color-secondary);
+    display: inline-block;
+}
+
+/* ======================================================= */
+/* 4. BARRA DE BÚSQUEDA Y FILTROS */
+/* ======================================================= */
+
+.searchbar {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centrar el contenedor de búsqueda */
+}
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px; /* Espacio antes del filtro */
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: var(--color-background-light); /* Usar variable para consistencia */
+  color: var(--color-text-light);
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  /* TRANSICIÓN: Pequeño efecto al enfocar */
+  transition: box-shadow 0.2s;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 8px var(--color-secondary); /* Sombra púrpura al enfocar */
+}
+
+
+/* --- Contenedor de Filtros --- */
+.filter-container {
+  display: flex;
+  flex-wrap: wrap; /* CRUCIAL: Permite que los filtros se envuelvan en pantallas pequeñas */
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-primary); /* Color de fondo más sólido */
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center; /* Centrar los elementos de filtro */
+  border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.filter-container select {
+  padding: 0.6rem 0.9rem;
+  background: var(--color-background-light); /* Usar variable para consistencia */
+  color: var(--color-text-light);
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  /* Eliminar la flecha por defecto y usar una custom si es necesario, pero appearance: none es clave */
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.filter-container select:hover {
+  border-color: var(--color-secondary);
+  background: #3a3a3a;
+  box-shadow: 0 0 6px rgba(90, 1, 122, 0.3);
+}
+
+/* Botón Limpiar */
+#limpiar {
+  padding: 0.6rem 1rem;
+  background: var(--color-error); /* Usamos la variable de error (rojo) */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: background .2s, transform .15s;
+}
+
+#limpiar:hover {
+  background: #ff8989; /* Color más claro al pasar el ratón */
+  transform: translateY(-2px);
+}
+
+#limpiar:active {
+  transform: translateY(0);
+}
+
+
+/* ======================================================= */
+/* 5. RESULTADOS Y TARJETA DE JUEGO (JUEGO-CARD) */
+/* ======================================================= */
+
+/* --- Contenedor de Resultados (Grid) --- */
+.resultados-container {
+  margin-top: 20px;
+  /* Grid responsivo: Min 300px por columna */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px; /* Aumentamos el gap para mejor separación visual */
+  padding: 10px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* --- Tarjeta de Juego --- */
+.juego-card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  align-items: flex-start; /* Alinea la imagen y el texto en la parte superior */
+  text-align: left;
+  height: auto; /* Altura dinámica basada en el contenido */
+  border: 1px solid #333;
+}
+
+.juego-card:hover {
+  transform: translateY(-5px); /* Cambio de escala por elevación sutil */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Enlace/Contenedor del click */
+.juego-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex; /* CRUCIAL: Necesita display flex para alinear imagen/info */
+  width: 100%;
+}
+
+.juego-card img {
+  width: 70px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.juego-info {
+  margin-left: 15px;
+  flex-grow: 1; /* Permite que la info ocupe el espacio restante */
+}
+
+.juego-info h3 {
+  font-size: 1.15rem; /* Ligeramente más grande */
+  margin-bottom: 5px;
+  line-height: 1.2;
+  color: var(--color-text-light);
+}
+
+.juego-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 8px;
+  /* Limitar descripción a 2 líneas si es necesario */
+  /*
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  */
+}
+
+.juego-info small {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  font-weight: bold; /* Destacar la fecha/género */
+}
+
+/* ======================================================= */
+/* ESTILO DEL BOTÓN BUSCAR DENTRO DE LOS FILTROS */
+/* ======================================================= */
+
+.filters button[name="buscar"] {
+    /* Diseño base */
+    padding: 0.6rem 1.2rem; /* Alto similar a los selectores (0.6rem) */
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-secondary); /* Púrpura principal */
+    color: var(--color-text-light);
+    font-size: 0.95rem; 
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap; /* Evita que el texto se rompa */
+    
+    /* Animaciones */
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.filters button[name="buscar"]:hover {
+    background-color: #6a008f; /* Un púrpura ligeramente más oscuro */
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 4px 10px rgba(90, 1, 122, 0.5); /* Sombra púrpura */
+}
+
+/* Efecto al presionar (Active) */
+.filters button[name="buscar"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* * Si deseas que el botón ocupe menos espacio en la línea de filtros
+ * puedes usar el ID o la clase directamente.
+ */
+/* #buscar-button { 
+    flex-shrink: 0; 
+} 
+*/
+
+/* ======================================================= */
+/* 6. CONTROL DE VISIBILIDAD DE SECCIONES PRINCIPALES (CORRECCIÓN) */
+/* ======================================================= */
+
+/* 1. Ocultar todos los contenedores de contenido principal por defecto */
+/* NOTA: Este selector es muy específico y anulará cualquier display: block; general. */
+.main-content > div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 2. Mostrar solo el que tiene la clase 'active' */
+/* CRUCIAL: Solo se aplica si la clase 'active' está presente */
+.main-content > div.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mantén estas clases para otros elementos, pero la regla de arriba es la que controla las secciones principales */
+/* .hidden { display: none; } */
+/* .active { display: block; } */
+
+
+
+
+
+
+
+
+
+/* ------------------------
+   OVERLAY ÚNICO Y GLOBAL
+   ------------------------ */
+
+
+
 /* JUEGO DETAILS SPECIFIC */
 #juegoDetallesModal .modal-content {
   background: #1e1e1e;
@@ -910,23 +1066,6 @@ main {
     user-select: none;
 }
 
-/* --- Responsividad --- */
-
-@media (max-width: 900px) {
-    .mis-juegos-layout {
-        flex-direction: column; /* Apila las columnas en pantallas más pequeñas */
-    }
-
-    .mis-juegos-stats-col {
-        flex: 1 1 auto; /* Permite que la columna de estadísticas se expanda */
-        max-width: 100%;
-        order: -1; /* Mueve las estadísticas a la parte superior */
-    }
-
-    .mis-juegos-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reducir el ancho mínimo */
-    }
-}
 
 
 
@@ -954,13 +1093,13 @@ main {
 
 /*Admin*/
 a {
-    color: #007bff; /* Azul estándar */
+    color: var(--color-hover); /* Azul estándar */
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #0056b3;
+    color: var(--color-secondary);
     text-decoration: underline;
 }
 
@@ -969,7 +1108,7 @@ a:hover {
     background-color: #343a40; /* Fondo oscuro */
     color: white;
     padding: 20px 40px;
-    border-bottom: 5px solid #007bff;
+    border-bottom: 5px solid var(--color-secondary);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -994,7 +1133,7 @@ a:hover {
 }
 
 .admin-header a:hover {
-    color: white;
+    color: black;
     border-color: white;
     background-color: #495057;
     text-decoration: none;
@@ -1043,7 +1182,7 @@ a:hover {
 .admin-module a {
     display: inline-block;
     background-color: #28a745; /* Verde para la acción principal */
-    color: white;
+    color: red;
     padding: 10px 15px;
     border-radius: 4px;
     text-align: center;
@@ -1065,9 +1204,6 @@ footer {
     font-size: 0.8em;
     border-top: 1px solid #e0e0e0;
 }
-
-
-
 
 
 
@@ -1138,4 +1274,106 @@ footer {
 
 .active {
     display: block; /* Muestra el contenido activo */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/* 1. BARRA DE PESTAÑAS CRUD HORIZONTAL (Tema Oscuro) */
+/* ======================================================= */
+.crud-tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0; 
+  /* Línea base oscura, usa el color de fondo claro para el contraste */
+  border-bottom: 2px solid var(--color-background-light); 
+  display: flex;
+}
+
+.crud-tabs li {
+  margin-right: 5px; /* Espacio entre pestañas */
+  margin-bottom: -2px; /* Superponer la línea de borde inferior */
+}
+
+.crud-tabs li a {
+  display: block;
+  padding: 10px 15px;
+  /* Color de texto claro por defecto */
+  color: var(--color-text-light); 
+  text-decoration: none;
+  /* Fondo más oscuro para las pestañas inactivas */
+  background-color: var(--color-primary); 
+  /* Borde oscuro que coincide con el fondo */
+  border: 1px solid var(--color-primary); 
+  border-bottom: none; 
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  transition: background-color var(--transition-speed);
+  font-weight: bold;
+}
+
+.crud-tabs li a:hover {
+  /* Al pasar el ratón, usa el color de hover */
+  background-color: var(--color-hover);
+  color: var(--color-text-light);
+}
+
+/* Estado Activo de la Pestaña */
+.crud-tabs li a.active-tab {
+  /* El fondo de la pestaña activa debe coincidir con el área de contenido */
+  background-color: var(--color-background-light);
+  /* El borde superior debe ser el color de fondo para que parezca "flotar" */
+  border-color: var(--color-background-light); 
+  /* Color de texto de acento para resaltar la pestaña */
+  color: var(--color-secondary); 
+  
+  /* El borde inferior DEBE coincidir con el fondo del contenido para "ocultar" la línea divisoria */
+  border-bottom-color: var(--color-background-light); 
+  
+  /* Sombra sutil en la parte superior */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.4); 
+}
+
+/* Estilos para el contenido que se activa/desactiva */
+.crud-seccion {
+    padding: 20px;
+    margin-top: 0;
+    /* Fondo que coincide con la pestaña activa */
+    background-color: var(--color-background-light);
+    border-radius: 0 8px 8px 8px;
+    /* Los demás estilos de display: none/block ya están definidos en tu CSS y JS */
+}
+
+
+
+.form-texto{
+  color: var(--color-text-dark);
+  
 }

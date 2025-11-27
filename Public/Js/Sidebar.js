@@ -1,44 +1,70 @@
+// ===============================================
+// SIDEBAR.JS: FUNCIÓNES GLOBALES INMEDIATAS
+// ===============================================
+
+// Función de utilidad GLOBAL (Acceso inmediato para Login.js y Register.js)
+function cerrarElemento(el) {
+    if (el) {
+        el.classList.remove("active");
+    }
+}
+window.cerrarElemento = cerrarElemento;
+
+// Función de ayuda para abrir un elemento (GLOBAL INMEDIATA)
+function openElement(el) {
+    const overlay = document.getElementById('overlay');
+    if (!el) {
+        console.warn('❌ Elemento a abrir no encontrado.', el);
+        return;
+    }
+    el.classList.add('active');
+    overlay?.classList.add('active');
+}
+
+// -----------------------------------------------------------
+// FUNCIONES GLOBALES DE APERTURA (Disponibles para el onclick)
+// -----------------------------------------------------------
+
+window.openPerfil = function () { openElement(document.getElementById('perfilModal')); };
+window.openSeccion = function () { openElement(document.getElementById('loginModal')); }; // <-- ¡El que no abría!
+window.openCuenta = function () { openElement(document.getElementById('registerModal')); };
+window.cuenta = function () { openElement(document.getElementById("avatarSelectionModalWrapper")); }; // Para el modal de avatar
+
+// -----------------------------------------------------------
+// LÓGICA DE CIERRE GLOBAL (se define dentro del DOMContentLoaded)
+// -----------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById('overlay');
     const sidebar = document.getElementById('sidebar');
-    const perfil = document.getElementById('perfilModal');
-    const cuenta = document.getElementById('registerModal');
-    const login = document.getElementById('loginModal');
 
-    if (!overlay) console.warn('No se encontró #overlay en el DOM');
-    console.log('overlay elements found:', document.querySelectorAll('#overlay').length);
-
+    // Cierra todos los modales, sidebar y el overlay.
     function closeAll() {
         console.log('closeAll invoked');
         sidebar?.classList.remove('active');
-        perfil?.classList.remove('active');
-        cuenta?.classList.remove('active');
-        login?.classList.remove('active');
+        cerrarElemento(document.getElementById('perfilModal'));
+        cerrarElemento(document.getElementById('registerModal'));
+        cerrarElemento(document.getElementById('loginModal'));
+        cerrarElemento(document.getElementById("avatarSelectionModalWrapper"));
         overlay?.classList.remove('active');
     }
+    window.closeAll = closeAll;
 
-    function openElement(el) {
-        if (!el) {
-            console.warn('Elemento a abrir no encontrado', el);
-            return;
-        }
-        el.classList.add('active');
-        overlay.classList.add('active');
-    }
-
+    // Toggle del menú lateral
     window.toggleMenu = function () {
         sidebar?.classList.toggle('active');
         if (sidebar?.classList.contains('active')) overlay.classList.add('active');
         else {
-            const anyModalOpen = [perfil, cuenta, login].some(m => m?.classList.contains('active'));
-            if (!anyModalOpen) overlay.classList.remove('active');
+            const anyModalOpen = [
+                document.getElementById('perfilModal'),
+                document.getElementById('registerModal'),
+                document.getElementById('loginModal'),
+                document.getElementById("avatarSelectionModalWrapper")
+            ].some(m => m?.classList.contains('active'));
+            if (!anyModalOpen) closeAll();
         }
     };
 
-    window.openPerfil = function () { openElement(perfil); };
-    window.openSeccion = function () { openElement(login); };
-    window.openCuenta = function () { openElement(cuenta); };
-
+    // Manejo de eventos de cierre
     overlay?.addEventListener('click', (e) => {
         if (e.target === overlay) closeAll();
     });

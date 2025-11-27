@@ -1,3 +1,4 @@
+// Este es el código que DEBES tener en FunncionesExtra.js
 function mostrarSeccion(id) {
     const secciones = [
         "contenidoNavegar",
@@ -6,45 +7,18 @@ function mostrarSeccion(id) {
         "contenidoAdmin"
     ];
 
-    // Ocultar todas
-    secciones.forEach(sec => {
-        document.getElementById(sec).style.display = "none";
+    // 1. Ocultar todas: remover la clase 'active' de todas
+    secciones.forEach(secId => {
+        const elemento = document.getElementById(secId);
+        if (elemento) {
+            // Asumiendo que usas .content-section en tu HTML
+            elemento.classList.remove("active"); 
+        }
     });
 
-    // Mostrar solo la seleccionada
-    document.getElementById(id).style.display = "block";
-}
-
-
-// Muestra el módulo seleccionado y oculta los demás
-function mostrarModulo(moduleId, element) {
-    // 1. Ocultar todos los módulos de contenido
-    const contenidos = document.querySelectorAll('.admin-module-content');
-    contenidos.forEach(div => {
-        div.classList.remove('active');
-        div.classList.add('hidden');
-    });
-
-    // 2. Mostrar el módulo seleccionado
-    const moduloActivo = document.getElementById(moduleId);
-    if (moduloActivo) {
-        moduloActivo.classList.add('active');
-        moduloActivo.classList.remove('hidden');
+    // 2. Mostrar solo la seleccionada: añadir la clase 'active'
+    const seccionAMostrar = document.getElementById(id);
+    if (seccionAMostrar) {
+        seccionAMostrar.classList.add("active");
     }
-
-    // 3. Resaltar el enlace activo
-    const enlaces = document.querySelectorAll('.admin-nav-sidebar a');
-    enlaces.forEach(a => a.classList.remove('active-nav'));
-    element.classList.add('active-nav');
 }
-
-// Asegurar que el primer módulo se muestre al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    // Ejecuta la función para el primer enlace (Gestión de Usuarios)
-    const primerEnlace = document.querySelector('.admin-nav-sidebar a');
-    if (primerEnlace) {
-        // Pasamos el ID del primer módulo para activarlo
-        const primerModuloId = primerEnlace.getAttribute('onclick').match(/'([^']+)'/)[1];
-        mostrarModulo(primerModuloId, primerEnlace);
-    }
-});

@@ -1,14 +1,24 @@
+// ===============================================
+// REGISTER.JS: LÓGICA DE FORMULARIO DE REGISTRO
+// ===============================================
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("registerForm");
-  const registerModal = document.getElementById("registerModal"); // ID del modal de registro
-  const cerrarRegistro = document.getElementById("cerrarRegistro"); // ID del botón cerrar 'x'
-  // ASUME que tienes un elemento para mostrar mensajes de registro
+  const registerModal = document.getElementById("registerModal"); 
+  const cerrarRegistro = document.getElementById("cerrarRegistro"); 
   const registerMsg = document.getElementById("registerMsg"); 
+
+  // La función 'cerrarElemento' se obtiene globalmente desde Sidebar.js
 
   // Función para cerrar el modal de registro al hacer clic en 'x'
   if (cerrarRegistro) {
     cerrarRegistro.addEventListener('click', () => {
-      cerrarElemento(registerModal);
+      // USAMOS LA FUNCIÓN GLOBAL:
+      if (typeof cerrarElemento === 'function') {
+        cerrarElemento(registerModal); 
+      } else {
+        registerModal.classList.remove("active");
+        window.closeAll && window.closeAll(); 
+      }
     });
   }
 
@@ -25,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const fd = new FormData(registerForm);
 
       try {
-        // Ajusta la URL al controlador de registro de PHP
         const respuesta = await fetch("http://localhost/GameTracker/src/controllers/registerController.php", {
           method: "POST",
           body: fd
@@ -40,10 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
             registerMsg.style.color = "green";
           }
           
-          // Opcional: Limpiar formulario y/o cerrar modal después de un registro exitoso
           registerForm.reset();
-          // Puedes optar por cerrar el modal de registro y abrir el de login aquí si es la UX deseada
-          // cerrarElemento(registerModal); 
+          // Opcional: Cerrar registro y abrir login
+          // window.openSeccion && window.openSeccion(); 
 
         } else {
           // Mensaje de error desde PHP
@@ -62,5 +70,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-}); // Fin del DOMContentLoaded
+});

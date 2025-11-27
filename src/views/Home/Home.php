@@ -13,14 +13,15 @@
     <?php
     include __DIR__ . '/../layout/MainLayout.php';
     ?>
+    <script src="../../../Public/Js/Sidebar.js"></script>
     <script src="../../../Public/Js/Register.js"></script>
     <script src="../../../Public/Js/Login.js"></script>
-    <script src="../../../Public/Js/Sidebar.js"></script>
-    <script src="../../../Public/Js/Modals.js"></script>
+    <script src="../../../Public/Js/admin.js"></script>
     <script src="../../../Public/Js/FunncionesExtra.js"></script>
     <script src="../../../Public/Js/dashboard.js"></script>
     <script src="../../../Public/Js/rating.js"></script>
     <script src="../../../Public/Js/ModalJuego.js"></script>
+    
 </body>
 
 

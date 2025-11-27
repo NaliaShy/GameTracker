@@ -9,7 +9,7 @@ include __DIR__ . '/../components/modals/juegoDetalleModal.php';
 
 ?>
 
-<main>
 
+<main class="main-content" id="mainContent">
     <?php include __DIR__ . '/../components/modals/content.php'; ?>
 </main>

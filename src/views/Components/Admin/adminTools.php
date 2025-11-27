@@ -1,5 +1,11 @@
 <?php
 include __DIR__ . '/../../../controllers/admin.php';
+require_once __DIR__ . '/../../../controllers/juegoController.php';
+$juegos = obtenerTodosLosJuegos();
+$mensaje = "";
+if (empty($juegos)) {
+    $mensaje = "No hay juegos registrados en la base de datos.";
+}
 ?>
 <div class="admin-header">
     <div>
@@ -26,7 +32,7 @@ include __DIR__ . '/../../../controllers/admin.php';
         </div>
 
         <div id="gestionJuegos" class="admin-module-content">
-            <?php include __DIR__ . ''; ?>
+            <?php include __DIR__ . '/modulos/datos_juegos.php'; ?>
         </div>
 
         <div id="reportesLogs" class="admin-module-content">

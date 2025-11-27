@@ -1,14 +1,15 @@
+// ===============================================
+// LOGIN.JS: LIMPIO
+// ===============================================
 document.addEventListener("DOMContentLoaded", () => {
 
     const loginForm = document.getElementById("loginForm");
     const loginMsg = document.getElementById("loginMsg");
     const loginModal = document.getElementById("loginModal");
-    const overlay = document.getElementById("overlay");
+    // const overlay = document.getElementById("overlay"); // Ya no es necesario aquí
 
-    function cerrarElemento(el) {
-        el.classList.remove("active");
-        overlay.classList.remove("active");
-    }
+    // NOTA: La función 'cerrarElemento(el)' es global y viene de Sidebar.js
+
 
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
@@ -31,8 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         loginMsg.style.color = "green";
                     }
 
-                    // cerrar modal
-                    cerrarElemento(loginModal);
+                    // cerrar modal: USA LA FUNCIÓN GLOBAL DE Sidebar.js
+                    if (typeof cerrarElemento === 'function') {
+                        cerrarElemento(loginModal); 
+                    } else {
+                        // En caso de fallo (fallback)
+                        loginModal.classList.remove("active");
+                        window.closeAll && window.closeAll();
+                    }
 
                     // redirigir
                     window.location.href = "../../views/Home/Home.php";

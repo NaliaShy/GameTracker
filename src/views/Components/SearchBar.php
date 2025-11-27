@@ -69,6 +69,8 @@ if ($buscarPresionado) {
 }
 ?>
 
+<!-- SEARCH BAR COMPONENTE -->
+
 <div class="searchbar">
     <form method="get" class="search-container">
         <div class="search-box">
