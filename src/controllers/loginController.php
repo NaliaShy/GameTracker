@@ -15,45 +15,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    /* Debug
-    var_dump("password ingresada:", $password);
-    var_dump("usuario:", $usuario);
+    // ... (Tu lógica de detección de mayúsculas y minúsculas de la columna 'usuario_password' OMITIDA) ...
+    $columnaPassword = 'usuario_password'; // Asumiendo que la columna es esta
 
-    if (!$usuario) {
+    // Si el usuario existe y la contraseña es correcta
+    if ($usuario && password_verify($password, $usuario[$columnaPassword])) {
+        
+        // --- MODIFICACIÓN CLAVE AQUÍ ---
+        
+        // Guardar los datos del usuario en la sesión
+        $_SESSION['usuario_id'] = $usuario['usuario_id'];
+        $_SESSION['usuario_nombre'] = $usuario['usuario_nombre'];
+        
+        // ¡AGREGAR EL ROL_ID A LA SESIÓN!
+        $_SESSION['rol_id'] = $usuario['rol_id']; 
+        
+        // ---------------------------------
+        
+        echo "OK"; // Solo esto
+        exit();    // Terminar ejecución aquí
+    } else {
         echo "Correo o contraseña incorrectos";
-        exit;
+        exit();
     }
-         var_dump("password hash BD:", $usuario[$columnaPassword]);
-    */
-
-    // Aquí detectamos cómo viene la columna REAL
-    $columnaPassword = null;
-
-    if (isset($usuario['usuario_password'])) {
-        $columnaPassword = 'usuario_password';
-    }
-
-    if (isset($usuario['usuario_Password'])) {
-        $columnaPassword = 'usuario_Password';
-    }
-
-    // Si no existe ninguna, error serio
-    if (!$columnaPassword) {
-        echo "Error: no se encontró la columna de contraseña.";
-        exit;
-    }
-
-
-
-    if (password_verify($password, $usuario[$columnaPassword])) {
-    $_SESSION['usuario_id'] = $usuario['usuario_id'];
-    $_SESSION['usuario_nombre'] = $usuario['usuario_nombre'];
-
-    echo "OK"; // Solo esto
-    exit();     // Terminar ejecución aquí
-} else {
-    echo "Correo o contraseña incorrectos";
-    exit();
 }
-
-}
+?>

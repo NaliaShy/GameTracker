@@ -12,3 +12,7 @@
   <?php include __DIR__ . '/../../../controllers/MisJuegosData.php'; ?>
   <?php include __DIR__ . '/../MisJuegos.php'?>
 </div>
+
+<div id="contenidoAdmin" style="display:none;">
+  <?php include __DIR__ . '/../../../views/Components/Admin/adminTools.php'; ?>
+</div>

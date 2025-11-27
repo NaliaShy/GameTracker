@@ -927,3 +927,215 @@ main {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reducir el ancho mínimo */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Admin*/
+a {
+    color: #007bff; /* Azul estándar */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* --- 2. ENCABEZADO PRINCIPAL (DIV) --- */
+.admin-header {
+    background-color: #343a40; /* Fondo oscuro */
+    color: white;
+    padding: 20px 40px;
+    border-bottom: 5px solid #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.admin-header p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.admin-header a {
+    color: #adb5bd; /* Gris claro para el enlace de retorno */
+    padding: 8px 15px;
+    border: 1px solid #adb5bd;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.admin-header a:hover {
+    color: white;
+    border-color: white;
+    background-color: #495057;
+    text-decoration: none;
+}
+
+/* --- 3. LAYOUT PRINCIPAL (GRID) --- */
+.dashboard-grid {
+    display: grid;
+    /* Crea 3 columnas de igual ancho con un espacio de 20px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+/* --- 4. MÓDULOS DE ADMINISTRACIÓN --- */
+.admin-module {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el enlace hacia abajo */
+}
+
+.admin-module:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.admin-module h2 {
+    color: #007bff;
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.admin-module p {
+    color: #6c757d;
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio restante */
+}
+
+.admin-module a {
+    display: inline-block;
+    background-color: #28a745; /* Verde para la acción principal */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.admin-module a:hover {
+    background-color: #218838;
+    text-decoration: none;
+}
+
+/* --- 5. PIE DE PÁGINA --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #6c757d;
+    font-size: 0.8em;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+
+
+
+
+
+/* --- NUEVOS ESTILOS PARA LAYOUT DE DOS COLUMNAS --- */
+
+.dashboard-layout {
+    display: flex; /* Habilitar Flexbox */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenedor */
+    min-height: 80vh; /* Asegurar una altura mínima para ver la barra */
+}
+
+.admin-nav-sidebar {
+    width: 250px; /* Ancho fijo para la barra lateral */
+    min-width: 200px;
+    background-color: #343a40; /* Fondo oscuro */
+    padding: 20px 0;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-nav-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-nav-sidebar li a {
+    display: block;
+    padding: 15px 20px;
+    color: #f8f9fa; /* Texto claro */
+    text-decoration: none;
+    border-left: 5px solid transparent;
+    transition: background-color 0.3s, border-left-color 0.3s;
+}
+
+.admin-nav-sidebar li a:hover {
+    background-color: #495057;
+}
+
+.admin-nav-sidebar li a.active-nav {
+    background-color: #007bff; /* Resaltar el activo */
+    border-left-color: #28a745; /* Barra de color diferente */
+    font-weight: bold;
+    color: white;
+}
+
+.admin-content-area {
+    flex-grow: 1; /* Ocupar el resto del espacio */
+    background-color: var(--color-background-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* --- CONTROL DE VISIBILIDAD --- */
+.admin-module-content {
+    /* Estilo base, oculto por defecto */
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block; /* Muestra el contenido activo */
+}

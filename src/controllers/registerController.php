@@ -46,9 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // 4. Insertar el nuevo usuario
     try {
-        $sql = "INSERT INTO usuario (usuario_nombre, usuario_email, usuario_password) 
-                VALUES (:nombre, :email, :password)";
-                
+        $sql = "INSERT INTO usuario (usuario_nombre, usuario_email, usuario_password, rol_id) 
+                 VALUES (:nombre, :email, :password, 1)"; // Rol ID 1 para 'Usuario'
+        
         $stmt = $pdo->prepare($sql);
         
         $stmt->bindParam(':nombre', $nombre);
@@ -61,11 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "OK";
         
     } catch (PDOException $e) {
-        // Error de inserción
-        // Para debug, puedes mostrar el error. En producción, es mejor un mensaje genérico.
-        // echo "Error: " . $e->getMessage(); 
-        error_log("Error al insertar usuario: " . $e->getMessage());
-        echo "Error al crear la cuenta. Inténtalo de nuevo.";
+        // --- MANEJO DE ERROR MEJORADO ---
+        
+        $errorCode = $e->getCode();
+        error_log("Error al insertar usuario. Código SQL: " . $errorCode . " Mensaje: " . $e->getMessage());
+        
+        if ($errorCode == '23000') {
+            // Código 23000 generalmente indica una violación de integridad (Clave Foránea o NOT NULL)
+            echo "Error: Faltan datos necesarios o el rol no existe. Contacta al soporte.";
+        } else {
+            // Otros errores
+            echo "Error al crear la cuenta. Inténtalo de nuevo. (Code: " . $errorCode . ")";
+        }
     }
     
     exit(); 
